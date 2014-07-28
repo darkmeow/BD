@@ -1,0 +1,29 @@
+<h1>Listado de todos los casos</h1>
+<table border=1>
+	<thead>
+		<tr>
+			<th>Caso</th>
+			<th>Víctima</th>
+			<th>Fecha eqo</th>
+			<th>Lugar eqo</th>
+			<th>Descripción</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<% @casos.each do |caso| %>
+		<tr>
+			<td> <%= caso.casename %> </td>
+			<td> <%= caso.victname %> </td>
+			<td> <%= caso.date_occu %></td>
+			<td> <%= caso.place_occu %> </td>
+			<td> <%= caso.desc %></td>
+			<td> <%= caso.status %></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+
+<%= link_to 'Nuevo Caso', caso_new_path%></br>
+<a href="http://localhost:3000/"> Volver</a>

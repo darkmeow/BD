@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  resources :profiles
+
+  devise_for :users
+
+  #root 'home#home'
+
+  #get 'caso' => 'caso#index'
+  #get 'caso/new' => 'caso#new'
+  #post 'caso/create' => 'caso#create'
+
+  authenticated do
+      root :to => 'home#home', :as => 'authenticated_user'
+      get 'caso' => 'caso#index'
+      get 'caso/new' => 'caso#new'
+      post 'caso/create' => 'caso#create'
+
+  end
+  # unauthenticated:
+  root :to => 'home#index', :as => 'unauthenticated'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

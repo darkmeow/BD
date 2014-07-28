@@ -34,4 +34,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  # default url for mailer in development
+# default url for mailer in development
+  config.action_mailer.default_url_options = { host: '190.162.38.149:3000', port: 80 }
+
+  # smtp settings for mailer in development environment
+  config.action_mailer.smtp_settings = {
+    address: "smtp.mandrillapp.com",
+    port: 587,
+    domain: "190.162.38.149:3000",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "grupo25.bd.usm@gmail.com",
+    password: "9hdj4Pz1RHObuMqWH67Dvw"
+  }
 end

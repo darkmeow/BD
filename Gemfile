@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#gem devise
+gem 'devise'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -37,4 +39,5 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'twitter-bootstrap-rails'
 
