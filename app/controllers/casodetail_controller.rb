@@ -1,0 +1,2 @@
+class CasodetailController < ApplicationController
+end

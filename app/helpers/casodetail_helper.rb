@@ -1,0 +1,2 @@
+module CasodetailHelper
+end

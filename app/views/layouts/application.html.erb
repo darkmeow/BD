@@ -7,7 +7,7 @@
   <meta name="description" content="HYPE Trends">
   <meta name="author" content="REFRAME S.A.">
   <!-- <link rel="icon" href="../../favicon.ico"> -->
-  <title>HYPE Trends</title>
+  <title>Tarea2 ~ BD2014-1 ~ Grupo 25 </title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Latest compiled and minified CSS -->
@@ -28,31 +28,40 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Hype Trends</a>
+        <a class="navbar-brand" href="/">DPCG</a>
       </div>
       <div class="navbar-collapse collapse">
         <% if user_signed_in? %>
-          <!-- Si esta autenticado mostramos el menu -->
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Edit user', edit_user_registration_path, :class => 'navbar-link' %></li>
-            <li><%= link_to 'Edit profile', edit_profile_path(:id => current_user.id), :class => 'navbar-link' %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-          </ul>
-        <% else %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
-            <!-- <li><%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li> -->
-          </ul>
-          <!-- Si no esta autenticado mostramos el formulario de ingreso -->
-          <%= form_for("user", :html => {:class => "navbar-form navbar-right"}, url: user_session_path) do |f| %>
-          <div class="form-group">
-            <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
-          </div>
-          <div class="form-group">
-            <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %>
-          </div>
-          <%= f.submit "Sign in", :class => "btn btn-success" %>
-          <% end %>
+            <%if current_user.admin%>
+              <h1>HOLA ADMIN!!!!!</h1>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to 'Edit user', edit_user_registration_path, :class => 'navbar-link' %></li>
+                <li><%= link_to 'Edit profile', edit_profile_path(:id => current_user.id), :class => 'navbar-link' %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              </ul>
+            <%else%>
+              <!-- Si esta autenticado mostramos el menu -->
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to 'Edit user', edit_user_registration_path, :class => 'navbar-link' %></li>
+                <li><%= link_to 'Edit profile', edit_profile_path(:id => current_user.id), :class => 'navbar-link' %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              </ul>
+              <%end%>
+            <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+                <!-- <li><%#= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li> -->
+              </ul>
+              <!-- Si no esta autenticado mostramos el formulario de ingreso -->
+              <%= form_for("user", :html => {:class => "navbar-form navbar-right"}, url: user_session_path) do |f| %>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %>
+              </div>
+              <%= f.submit "Sign in", :class => "btn btn-success" %>
+              <% end %>
         <% end %>
       </div>
     </div>

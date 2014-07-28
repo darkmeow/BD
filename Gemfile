@@ -39,5 +39,4 @@ gem 'devise'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'twitter-bootstrap-rails'
-
+gem 'casein', '5.0.0'

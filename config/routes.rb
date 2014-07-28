@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+	#Casein routes
+	namespace :casein do
+		resources :casos
+		resources :customers
+	end
+
   resources :profiles
 
   devise_for :users
