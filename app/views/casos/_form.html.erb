@@ -1,0 +1,30 @@
+<%= form_for :caso, url: casos_create_path do |f| %>
+
+  <p>
+    <%= f.label "Nombre" %></b>
+    <%= f.text_field :casename, :placeholder => "Nombre" %>
+  </p>
+  <p>
+    <%= f.label "Víctima" %></b>
+    <%= f.text_field :victname, :placeholder => "Víctima" %>
+  </p>
+  <p>
+    <%= f.label "Fecha en que ocurrió" %></b>
+    <%= f.text_field :date_occu, :placeholder => "Fecha" %>
+  </p>
+  <p>
+    <%= f.label "Lugar en que ocurrió" %></b>
+    <%= f.text_field :place_occu, :placeholder => "Lugar" %>
+  </p>
+
+  <p>
+    <%= f.label "Descripción" %></b>
+    <%= f.text_area :desc, :placeholder => "Descripción" %>
+  <p>
+    <%= f.label "Estado del caso" %></b>
+    <%= f.text_field :status, :placeholder => "Status" %>
+  </p>  
+  <p>
+  <%= f.submit "Guardar Caso"%>
+  </p>
+<%end%>

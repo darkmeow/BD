@@ -1,7 +1,9 @@
 <p>
   <strong>Nombre:</strong>
-  <%= @profile.name %> <%= @profile.lastname %>
+  <%= @profile.name %> <%= @profile.lastname %></br>
+    <strong>Email:</strong>
+  <%= current_user.email %> 
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<a href="/">Back</a></br>

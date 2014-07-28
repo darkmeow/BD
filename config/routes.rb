@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :casos
+
 	#Casein routes
-	namespace :casein do
-		resources :casos
-		resources :customers
-	end
+	#namespace :casein do
+	#	resources :casos
+	#	resources :customers
+	#end
 
   resources :profiles
 
@@ -18,11 +20,13 @@ Rails.application.routes.draw do
 
   authenticated do
       root :to => 'home#home', :as => 'authenticated_user'
-      get 'caso' => 'caso#index'
-      get 'caso/new' => 'caso#new'
-      post 'caso/create' => 'caso#create'
-
+      get 'casos' => 'casos#index'
+      get 'casos/new' => 'casos#new'
+      post 'casos/create' => 'casos#create'
   end
+
+
+
   # unauthenticated:
   root :to => 'home#index', :as => 'unauthenticated'
 

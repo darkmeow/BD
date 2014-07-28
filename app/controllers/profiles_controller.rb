@@ -1,10 +1,12 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    #@profiles = Profile.all
+    @user = User.find_by_id(current_user.id)
+    @profile = @user.profile
   end
 
   # GET /profiles/1
@@ -20,40 +22,33 @@ class ProfilesController < ApplicationController
   end
 
   # GET /profiles/1/edit
-  def edit
-        @profile = Profile.find_by_user_id(current_user.id)
-        if @profile.nil?
-          redirect_to new_profile_path
-        end
+ def edit
+    @profile = Profile.find_by_user_id(current_user.id)
+    if @profile.nil?
+      redirect_to new_profile_path
+    end
   end
-
   # POST /profiles
   # POST /profiles.json
+  
   def create
     @profile = Profile.new(profile_params)
-
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
-      else
-        format.html { render :new }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+    @profile.user_id = current_user.id
+    if @profile.save
+      redirect_to edit_profile_path(:id => current_user.id)
+    else
+      render 'new'
     end
   end
 
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
-  def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profile }
-      else
-        format.html { render :edit }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+ def update
+    @profile = Profile.find(params[:id])
+    if @profile.update(profile_params)
+      redirect_to edit_profile_path(:id => current_user.id)
+    else
+      render 'edit'
     end
   end
 

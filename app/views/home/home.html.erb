@@ -1,5 +1,10 @@
-<h1>Bienvenido al Sistema de Don Carlos Guzmán</h1>
+<% if user_signed_in? %>
+    <%if current_user.admin%>
+			
+			<%= render 'dashboard_admin' %>
 
-<h2>Casos</h2>
-<a href="caso">* Listar Casos</a></br>
-<a href="caso/new">* Nuevo Caso</a></br>
+	<%else%>
+
+			<%= render 'dashboard_user' %>
+	<%end%>
+<%end%>

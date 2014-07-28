@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728142852) do
+ActiveRecord::Schema.define(version: 20140728184148) do
 
   create_table "casein_admin_users", force: true do |t|
     t.string   "login",                           null: false
