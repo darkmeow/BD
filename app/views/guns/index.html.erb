@@ -1,0 +1,27 @@
+<h1>Listing guns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Model</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guns.each do |gun| %>
+      <tr>
+        <td><%= gun.name %></td>
+        <td><%= gun.model %></td>
+        <td><%= link_to 'Show', gun %></td>
+        <td><%= link_to 'Edit', edit_gun_path(gun) %></td>
+        <td><%= link_to 'Destroy', gun, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gun', new_gun_path %>

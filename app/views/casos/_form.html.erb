@@ -1,30 +1,42 @@
-<%= form_for :caso, url: casos_create_path do |f| %>
+<%= form_for(@caso) do |f| %>
+  <% if @caso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@caso.errors.count, "error") %> prohibited this caso from being saved:</h2>
 
-  <p>
-    <%= f.label "Nombre" %></b>
-    <%= f.text_field :casename, :placeholder => "Nombre" %>
-  </p>
-  <p>
-    <%= f.label "Víctima" %></b>
-    <%= f.text_field :victname, :placeholder => "Víctima" %>
-  </p>
-  <p>
-    <%= f.label "Fecha en que ocurrió" %></b>
-    <%= f.text_field :date_occu, :placeholder => "Fecha" %>
-  </p>
-  <p>
-    <%= f.label "Lugar en que ocurrió" %></b>
-    <%= f.text_field :place_occu, :placeholder => "Lugar" %>
-  </p>
+      <ul>
+      <% @caso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <p>
-    <%= f.label "Descripción" %></b>
-    <%= f.text_area :desc, :placeholder => "Descripción" %>
-  <p>
-    <%= f.label "Estado del caso" %></b>
-    <%= f.text_field :status, :placeholder => "Status" %>
-  </p>  
-  <p>
-  <%= f.submit "Guardar Caso"%>
-  </p>
-<%end%>
+  <div class="field">
+    <%= f.label :casename %><br>
+    <%= f.text_field :casename %>
+  </div>
+  <div class="field">
+    <%= f.label :victname %><br>
+    <%= f.text_field :victname %>
+  </div>
+  <div class="field">
+    <%= f.label :date_occu %><br>
+    <%= f.date_select :date_occu %>
+  </div>
+  <div class="field">
+    <%= f.label :place_occu %><br>
+    <%= f.text_field :place_occu %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br>
+    <%= f.text_area :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

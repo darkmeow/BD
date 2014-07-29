@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weapon: 1
+  primesuspect: 1
+  personinvolved: 1
+  evid_collected: MyText
+  evid_inv: MyText
+  notes: MyText
+  guilty: 1
+
+two:
+  weapon: 1
+  primesuspect: 1
+  personinvolved: 1
+  evid_collected: MyText
+  evid_inv: MyText
+  notes: MyText
+  guilty: 1

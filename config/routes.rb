@@ -1,41 +1,27 @@
 Rails.application.routes.draw do
+  resources :details
+
+  resources :guns
+
+  resources :people
 
   resources :casos
 
-	#Casein routes
-	#namespace :casein do
-	#	resources :casos
-	#	resources :customers
-	#end
-
-  resources :profiles
-
   devise_for :users
-
-  #root 'home#home'
-
-  #get 'caso' => 'caso#index'
-  #get 'caso/new' => 'caso#new'
-  #post 'caso/create' => 'caso#create'
-
-  authenticated do
-      root :to => 'home#home', :as => 'authenticated_user'
-      get 'casos' => 'casos#index'
-      get 'casos/new' => 'casos#new'
-      post 'casos/create' => 'casos#create'
-  end
-
-
-
-  # unauthenticated:
-  root :to => 'home#index', :as => 'unauthenticated'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  
+  authenticated do
+    root :to => 'casos#index', :as => 'authenticated_user'
+    get 'casos' => 'casos#index'
+    get 'casos/new' => 'casos#new'
+    post 'casos/create' => 'casos#create'
+  end
 
+  root :to => 'home#index', :as => 'unathenticated'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

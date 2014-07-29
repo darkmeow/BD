@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weapon:</strong>
+  <%= @detail.weapon %>
+</p>
+
+<p>
+  <strong>Primesuspect:</strong>
+  <%= @detail.primesuspect %>
+</p>
+
+<p>
+  <strong>Personinvolved:</strong>
+  <%= @detail.personinvolved %>
+</p>
+
+<p>
+  <strong>Evid collected:</strong>
+  <%= @detail.evid_collected %>
+</p>
+
+<p>
+  <strong>Evid inv:</strong>
+  <%= @detail.evid_inv %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @detail.notes %>
+</p>
+
+<p>
+  <strong>Guilty:</strong>
+  <%= @detail.guilty %>
+</p>
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', details_path %>

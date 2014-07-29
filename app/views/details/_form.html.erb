@@ -1,0 +1,45 @@
+<%= form_for(@detail) do |f| %>
+  <% if @detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% @detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :weapon %><br>
+    <%= f.number_field :weapon %>
+  </div>
+  <div class="field">
+    <%= f.label :primesuspect %><br>
+    <%= f.number_field :primesuspect %>
+  </div>
+  <div class="field">
+    <%= f.label :personinvolved %><br>
+    <%= f.number_field :personinvolved %>
+  </div>
+  <div class="field">
+    <%= f.label :evid_collected %><br>
+    <%= f.text_area :evid_collected %>
+  </div>
+  <div class="field">
+    <%= f.label :evid_inv %><br>
+    <%= f.text_area :evid_inv %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :guilty %><br>
+    <%= f.number_field :guilty %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

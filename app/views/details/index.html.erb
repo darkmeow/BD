@@ -1,0 +1,37 @@
+<h1>Listing details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weapon</th>
+      <th>Primesuspect</th>
+      <th>Personinvolved</th>
+      <th>Evid collected</th>
+      <th>Evid inv</th>
+      <th>Notes</th>
+      <th>Guilty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @details.each do |detail| %>
+      <tr>
+        <td><%= detail.weapon %></td>
+        <td><%= detail.primesuspect %></td>
+        <td><%= detail.personinvolved %></td>
+        <td><%= detail.evid_collected %></td>
+        <td><%= detail.evid_inv %></td>
+        <td><%= detail.notes %></td>
+        <td><%= detail.guilty %></td>
+        <td><%= link_to 'Show', detail %></td>
+        <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
+        <td><%= link_to 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Detail', new_detail_path %>

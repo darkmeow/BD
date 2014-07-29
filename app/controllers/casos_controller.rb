@@ -4,8 +4,8 @@ class CasosController < ApplicationController
   # GET /casos
   # GET /casos.json
   def index
-      @user = User.find_by_id(current_user.id)
-        @casos = @user.casos
+    @user = current_user
+    @casos = @user.casos
   end
 
   # GET /casos/1
@@ -15,8 +15,7 @@ class CasosController < ApplicationController
 
   # GET /casos/new
   def new
-    @user = User.find_by_id(current_user.id)
-    @caso = @user.casos.build 
+    @caso = Caso.new
   end
 
   # GET /casos/1/edit
@@ -26,20 +25,17 @@ class CasosController < ApplicationController
   # POST /casos
   # POST /casos.json
   def create
-    @user = User.find_by_id(current_user.id)
-        @caso = @user.casos.build(caso_params) 
-        
-        respond_to do |format|
-          if @caso.save
-            format.html { redirect_to @caso, notice: 'Profile was successfully created.' }
-            format.json { render :show, status: :created, location: @caso }
-          else
-            format.html { render :new }
-            format.json { render json: @caso.errors, status: :unprocessable_entity }
-          end
-          
-         #redirect_to caso_path    # esta ruta se explica a continuación
-        end
+    @caso = Caso.new(caso_params)
+    @caso.user_id = current_user.id
+    respond_to do |format|
+      if @caso.save
+        format.html { redirect_to @caso, notice: 'Caso was successfully created.' }
+        format.json { render :show, status: :created, location: @caso }
+      else
+        format.html { render :new }
+        format.json { render json: @caso.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /casos/1
@@ -47,8 +43,8 @@ class CasosController < ApplicationController
   def update
     respond_to do |format|
       if @caso.update(caso_params)
-        format.html { redirect_to casos_url, notice: 'Caso was successfully updated.' }
-        format.json { render :show, status: :ok, location: casos_url }
+        format.html { redirect_to @caso, notice: 'Caso was successfully updated.' }
+        format.json { render :show, status: :ok, location: @caso }
       else
         format.html { render :edit }
         format.json { render json: @caso.errors, status: :unprocessable_entity }
@@ -74,7 +70,6 @@ class CasosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def caso_params
-        params.require(:caso).permit(:casename, :victname, :date_occu, :place_occu, :desc, :status, :owner, :user_id)
-
+      params.require(:caso).permit(:casename, :status, :user_id)
     end
 end

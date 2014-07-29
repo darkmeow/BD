@@ -1,4 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Casename:</strong>
+  <%= @caso.casename %>
+</p>
+
+<p>
+  <strong>Victname:</strong>
+  <%= @caso.victname %>
+</p>
+
+<p>
+  <strong>Date occu:</strong>
+  <%= @caso.date_occu %>
+</p>
+
+<p>
+  <strong>Place occu:</strong>
+  <%= @caso.place_occu %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @caso.desc %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @caso.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @caso.user_id %>
+</p>
+
 <%= link_to 'Edit', edit_caso_path(@caso) %> |
 <%= link_to 'Back', casos_path %>
