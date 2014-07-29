@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   
   authenticated do
-    root :to => 'casos#index', :as => 'authenticated_user'
+    root :to => 'home#home', :as => 'authenticated_user'
     get 'casos' => 'casos#index'
     get 'casos/new' => 'casos#new'
     post 'casos/create' => 'casos#create'
