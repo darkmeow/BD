@@ -4,6 +4,13 @@ Barbarita Lara 201021048-0
 Elías Figueroa 201293004-9
 
 ***Existe un campo admin booleano en el usuario para especificar los admin's.
+	user admin: barbarita.lara@gmail.com
+	pass: rubyonrails
+
+	detective: roberto.carvajal@gmail.com
+	pass: rubyonrails
+
+
 ***Devise controlar el acceso de "users" que son los detectives
 
 El modelo de datos se trabajo a través de "model", las relaciones de cada tabla quedaron definidas en cada modelo.
