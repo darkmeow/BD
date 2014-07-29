@@ -1,4 +1,6 @@
-BD
-==
+SUPUESTOS GRUPO 25 TAREA 2
 
-Bases de Datos 2014-1
+Barbarita Lara 201021048-0
+Elías Figueroa 201293004-9
+
+
